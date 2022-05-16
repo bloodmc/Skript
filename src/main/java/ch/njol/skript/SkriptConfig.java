@@ -26,6 +26,7 @@ import ch.njol.skript.config.OptionSection;
 import ch.njol.skript.config.SectionNode;
 import ch.njol.skript.hooks.Hook;
 import ch.njol.skript.hooks.VaultHook;
+import ch.njol.skript.hooks.regions.GriefDefenderHook;
 import ch.njol.skript.hooks.regions.GriefPreventionHook;
 import ch.njol.skript.hooks.regions.PreciousStonesHook;
 import ch.njol.skript.hooks.regions.ResidenceHook;
@@ -280,6 +281,11 @@ public class SkriptConfig {
 		.optional(true)
 		.setter(value -> {
 			userDisableHooks(VaultHook.class, value);
+		});
+	public final static Option<Boolean> disableHookGriefDefender = new Option<>("disable hooks.regions.griefdefender", false)
+		.optional(true)
+		.setter(value -> {
+			userDisableHooks(GriefDefenderHook.class, value);
 		});
 	public final static Option<Boolean> disableHookGriefPrevention = new Option<>("disable hooks.regions.grief prevention", false)
 		.optional(true)
